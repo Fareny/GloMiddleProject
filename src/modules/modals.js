@@ -17,6 +17,7 @@ const headerModal = () => {
 
         if (e.target.className === 'header-modal__close' || e.target.className === 'overlay' ||
             e.target.className === 'services-modal__close') {
+            headerModal.style.display = `none`;
             serviceModal.style.display = `none`;
             overlay.style.display = `none`;
         }

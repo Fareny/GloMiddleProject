@@ -1,1 +1,3 @@
-console.log('Hello world213');
+import slider from './modules/slider';
+
+slider();

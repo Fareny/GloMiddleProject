@@ -1,1 +1,1 @@
-console.log("Hello world213");
+(()=>{"use strict";const t=()=>{const o=document.querySelector(".smooth-scroll");window.pageYOffset>1300?(o.style.transition="all 1s ease-in-out",o.style.opacity="1",o.addEventListener("click",(t=>{t.preventDefault(),window.scroll({top:0,behavior:"smooth"})}))):o.style.opacity="0",window.onscroll=t};t()})();

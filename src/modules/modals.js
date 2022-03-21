@@ -8,6 +8,7 @@ const headerModal = () => {
     const modalContent = document.querySelector('.modalContent');
     const modalOverlay = document.querySelector('.modalOverlay');
 
+    overlay.style.zIndex = 99;
     documentOverlay.forEach((item) => {
         item.style.height = '0px';
     });

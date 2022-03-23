@@ -1,7 +1,7 @@
 const headerModal = () => {
     const headerModal = document.querySelector('.header-modal');
     const overlay = document.querySelector('.overlay');
-    const balkony = document.querySelector("body");
+    const doc = document.querySelector("body");
     const imgResponsive = document.querySelectorAll('.sertificate-document');
     const documentOverlay = document.querySelectorAll('.document-overlay');
     const serviceModal = document.querySelector('.services-modal');
@@ -12,19 +12,20 @@ const headerModal = () => {
     documentOverlay.forEach((item) => {
         item.style.height = '0px';
     });
-    balkony.addEventListener('click', (e) => {
+
+    doc.addEventListener('click', (e) => {
+        e.preventDefault();
         if (e.target.className === 'btn btn-warning btn-block fancyboxModal') { //первая модалка
             headerModal.style.display = `block`;
             overlay.style.display = `block`;
         }
 
-        if (e.target.className === 'btn btn-success btn-sm fancyboxModal') { //вторая модалка
+        if (e.target.className === 'btn btn-success btn-sm fancyboxModal') { //вторая модалкау
             serviceModal.style.display = `block`;
             overlay.style.display = `block`;
         }
 
         if (e.target.className === 'img-responsive') { //модальное изображение  
-            e.preventDefault();
             const doc = document.querySelectorAll('.sertificate-document .img-responsive');
             doc.forEach((item, i) => {
                 item.id = `imageContent${i}`;

@@ -22,8 +22,9 @@ const timer = (deadLine => {
             seconds
         };
     };
+
+    let getTime = getTimeRemaning();
     const updated = (daysCount, hoursCount, minutesCount, secondsCount) => {
-        let getTime = getTimeRemaning();
 
         if (getTime.timeRemaining <= 0) {
             daysCount.textContent = '00';
@@ -36,15 +37,17 @@ const timer = (deadLine => {
             minutesCount.textContent = returnZero(getTime.minutes);
             secondsCount.textContent = returnZero(getTime.seconds);
         }
-        setInterval(() => {
-            if (getTime.timeRemaining > 0) {
-                updated(daysValue[0], hoursValue[0], minutesValue[0], secondsValue[0]);
-                updated(daysValue[1], hoursValue[1], minutesValue[1], secondsValue[1]);
-            }
-        }, 1000);
     };
+    setInterval(() => {
+        if (getTime.timeRemaining > 0) {
+            updated(daysValue[0], hoursValue[0], minutesValue[0], secondsValue[0]);
+            updated(daysValue[1], hoursValue[1], minutesValue[1], secondsValue[1]);
+        }
+    }, 1000);
+
     updated(daysValue[0], hoursValue[0], minutesValue[0], secondsValue[0]);
     updated(daysValue[1], hoursValue[1], minutesValue[1], secondsValue[1]);
+
     function returnZero(num) {
         return num <= 9 ? '0' + num : num;
     }

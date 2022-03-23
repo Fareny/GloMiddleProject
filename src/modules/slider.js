@@ -9,7 +9,7 @@ const slider = () => {
             prevEl: '.services__arrow.services__arrow--left',
         },
         breakpoints: {
-            1200: {
+            576: {
                 slidesPerView: 2,
             }
         }

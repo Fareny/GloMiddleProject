@@ -14,7 +14,6 @@ const headerModal = () => {
     });
 
     doc.addEventListener('click', (e) => {
-        e.preventDefault();
         if (e.target.className === 'btn btn-warning btn-block fancyboxModal') { //первая модалка
             headerModal.style.display = `block`;
             overlay.style.display = `block`;

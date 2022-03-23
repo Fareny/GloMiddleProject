@@ -15,17 +15,20 @@ const headerModal = () => {
 
     doc.addEventListener('click', (e) => {
         if (e.target.className === 'btn btn-warning btn-block fancyboxModal') { //первая модалка
+            e.preventDefault();
             headerModal.style.display = `block`;
             overlay.style.display = `block`;
         }
 
         if (e.target.className === 'btn btn-success btn-sm fancyboxModal') { //вторая модалкау
+            e.preventDefault();
             serviceModal.style.display = `block`;
             overlay.style.display = `block`;
         }
 
         if (e.target.className === 'img-responsive') { //модальное изображение  
             const doc = document.querySelectorAll('.sertificate-document .img-responsive');
+            e.preventDefault();
             doc.forEach((item, i) => {
                 item.id = `imageContent${i}`;
             });

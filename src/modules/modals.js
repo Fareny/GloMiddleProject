@@ -28,7 +28,6 @@ const headerModal = () => {
 
         if (e.target.className === 'img-responsive') { //модальное изображение  
             const doc = document.querySelectorAll('.sertificate-document .img-responsive');
-            e.preventDefault();
             doc.forEach((item, i) => {
                 item.id = `imageContent${i}`;
             });

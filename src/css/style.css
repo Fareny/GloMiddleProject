@@ -1678,3 +1678,23 @@ input.error {
     max-width: 576px;
   }
 }
+@media (min-width: 576px) {
+  .service-text{
+    margin-left: 220px;
+    border-radius: 0px;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+  .service-image{
+    display: block;
+  }
+}
+@media (max-width: 1200px) {
+  .service-text{
+    margin-left: 0px;
+    border-radius: 10px;
+  }
+  .service-image{
+    display: none;
+  }
+}

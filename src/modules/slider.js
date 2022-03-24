@@ -1,6 +1,6 @@
 const slider = () => {
     const container = document.querySelector("#benefits > div");
-    container.style.width = '585px';
+    container.style.width = '575.5px';
     const swiperServices = new Swiper('#services .swiper', {
         direction: "horizontal",
         loop: true,
@@ -28,7 +28,7 @@ const slider = () => {
         if (window.screen.width < 576) {
             container.style.width = '198px';
         } else {
-            container.style.width = '585px';
+            container.style.width = '575.5px';
         }
     });
 };

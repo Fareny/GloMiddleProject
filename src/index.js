@@ -7,7 +7,7 @@ import sendForm from './modules/sendForm';
 
 scroll();
 headerModal();
-timer('25 march 2022');
+timer('26 march 2022');
 slider();
 let calcCount = true;
 try {

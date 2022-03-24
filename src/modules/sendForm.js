@@ -27,10 +27,10 @@ const sendForm = (ifCalc) => {
         let name = formItem.name;
         let phone = formItem.phone;
 
-        if (phone.length > 16 || phone.length == 0 || name.length < 2) {
+        if (phone.length > 16 || phone.length < 6 || name.length < 2) {
             result = false;
-        } else if (ifCalc == true && price.value.length == 0) {
-            result = false;
+        } else if (ifCalc == true) {
+            result = true;
         }
         return result;
     };

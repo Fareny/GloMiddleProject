@@ -22,32 +22,36 @@ const timer = (deadLine => {
             seconds
         };
     };
-
-    const updated = (daysCount, hoursCount, minutesCount, secondsCount) => {
+    const updated = () => {
         let getTime = getTimeRemaning();
         if (getTime.timeRemaining <= 0) {
-            daysCount.textContent = '00';
-            hoursCount.textContent = '00';
-            minutesCount.textContent = '00';
-            secondsCount.textContent = '00';
-        } else {
-            daysCount.textContent = returnZero(getTime.days);
-            hoursCount.textContent = returnZero(getTime.hours);
-            minutesCount.textContent = returnZero(getTime.minutes);
-            secondsCount.textContent = returnZero(getTime.seconds);
-        }
+            daysValue[0].textContent = '00';
+            hoursValue[0].textContent = '00';
+            minutesValue[0].textContent = '00';
+            secondsValue[0].textContent = '00';
 
+            daysValue[1].textContent = '00';
+            hoursValue[1].textContent = '00';
+            minutesValue[1].textContent = '00';
+            secondsValue[1].textContent = '00';
+        } else {
+            daysValue[0].textContent = returnZero(getTime.days);
+            hoursValue[0].textContent = returnZero(getTime.hours);
+            minutesValue[0].textContent = returnZero(getTime.minutes);
+            secondsValue[0].textContent = returnZero(getTime.seconds);
+
+            daysValue[1].textContent = daysValue[0].textContent;
+            hoursValue[1].textContent = hoursValue[0].textContent;
+            minutesValue[1].textContent = minutesValue[0].textContent;
+            secondsValue[1].textContent = secondsValue[0].textContent;
+        }
     };
     setInterval(() => {
         let getTime = getTimeRemaning();
         if (getTime.timeRemaining > 0) {
-            updated(daysValue[0], hoursValue[0], minutesValue[0], secondsValue[0]);
-            updated(daysValue[1], hoursValue[1], minutesValue[1], secondsValue[1]);
+            updated();
         }
     }, 1000);
-
-    updated(daysValue[0], hoursValue[0], minutesValue[0], secondsValue[0]);
-    updated(daysValue[1], hoursValue[1], minutesValue[1], secondsValue[1]);
 
     function returnZero(num) {
         return num <= 9 ? '0' + num : num;

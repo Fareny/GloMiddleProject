@@ -1,7 +1,7 @@
 const slider = () => {
     const btnScroll = document.querySelector('.smooth-scroll');
     if (window.pageYOffset > 1300) {
-        btnScroll.style.transition = 'all 1s ease-in-out';
+        btnScroll.style.transition = 'all 0.4s ease-in-out';
         btnScroll.style.opacity = '1';
         btnScroll.addEventListener('click', (e) => {
             e.preventDefault();

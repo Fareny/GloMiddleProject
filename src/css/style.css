@@ -1058,6 +1058,7 @@ p.services-image_mobile {
   overflow: hidden;
 }
 .box-modal .box-modal_topic {
+  margin-top: -30px;
   line-height: 1.4;
   font-size: 30px;
   font-weight: bold;

@@ -7,8 +7,6 @@ const headerModal = () => {
     const serviceModal = document.querySelector('.services-modal');
     const modalContent = document.querySelector('.modalContent');
     const modalOverlay = document.querySelector('.modalOverlay');
-    const modalOne = document.querySelectorAll('.btn.btn-warning.feedback')[3];
-    const modalTwo = document.querySelectorAll('.btn.btn-success.feedback')[2];
 
     overlay.style.zIndex = 99;
     documentOverlay.forEach((item) => {
@@ -63,12 +61,6 @@ const headerModal = () => {
             modalContent.style.visibility = 'hidden';
             modalContent.style.opacity = 0;
         }
-        modalOne.addEventListener('click', (e) => {
-            e.preventDefault();
-        });
-        modalTwo.addEventListener('click', (e) => {
-            e.preventDefault();
-        });
     });
 };
 export default headerModal;

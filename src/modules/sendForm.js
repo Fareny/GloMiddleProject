@@ -2,10 +2,19 @@ import { validation } from "./validation";
 const sendForm = (ifCalc) => {
     const formOne = document.getElementById('order_1');
     const formTwo = document.getElementById('order_2');
+    const modalOne = document.querySelector('.header-modal.header-modal--opened');
+    const modalTwo = document.querySelector('.services-modal.services-modal--opened');
+    const forms = document.querySelectorAll('.form-control.required');
     const inputsFormOne = formOne.querySelectorAll('input');
     const inputsFormTwo = formTwo.querySelectorAll('input');
 
-    let nameFormOne = inputsFormOne[0],
+    let
+        nameModalOne = forms[10],
+        phoneModalOne = forms[11],
+        nameModalTwo = forms[12],
+        phoneModalTwo = forms[13],
+
+        nameFormOne = inputsFormOne[0],
         phoneFormOne = inputsFormOne[1],
         nameFormTwo = inputsFormTwo[0],
         phoneFormTwo = inputsFormTwo[1];
@@ -22,6 +31,7 @@ const sendForm = (ifCalc) => {
 
     let price = document.getElementById('calc-total');
     validation(nameFormOne, phoneFormOne, nameFormTwo, phoneFormTwo);
+    validation(nameModalOne, phoneModalOne, nameModalTwo, phoneModalTwo);
     const validate = (formItem) => {
         let result = true;
         let name = formItem.name;
@@ -36,6 +46,10 @@ const sendForm = (ifCalc) => {
     };
 
     const clear = () => {
+        nameModalOne.value = '';
+        phoneModalOne.value = '';
+        nameModalTwo.value = '';
+        phoneModalTwo.value = '';
         nameFormOne.value = '';
         phoneFormOne.value = '';
         nameFormTwo.value = '';
@@ -45,7 +59,8 @@ const sendForm = (ifCalc) => {
     const send = (form, name, phone) => {
         form.addEventListener('click', (e) => {
             e.preventDefault();
-            if (e.target.className == 'btn btn-warning btn-block feedback') {
+            if (e.target.className == 'btn btn-warning btn-block feedback' ||
+                e.target.className == 'btn btn-warning feedback' || e.target.className == 'btn btn-success feedback') {
                 const data = {
                     name: name.value,
                     phone: phone.value,
@@ -63,7 +78,7 @@ const sendForm = (ifCalc) => {
             }
         });
     };
-    send(formOne, nameFormOne, phoneFormOne);
-    send(formTwo, nameFormTwo, phoneFormTwo);
+    send(formOne, nameFormOne, phoneFormOne); send(modalOne, nameModalOne, phoneModalOne);
+    send(formTwo, nameFormTwo, phoneFormTwo); send(modalTwo, nameModalTwo, phoneModalTwo);
 };
 export default sendForm;

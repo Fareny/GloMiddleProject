@@ -1,8 +1,9 @@
-const timer = (deadLine => {
-    const daysValue = document.querySelectorAll('.count_1 > span');
-    const hoursValue = document.querySelectorAll('.count_2 > span');
-    const minutesValue = document.querySelectorAll('.count_3 > span');
-    const secondsValue = document.querySelectorAll('.count_4 > span');
+const timer = ((order, deadLine) => {
+    const form = document.getElementById(`${order}`);
+    const daysValue = form.querySelector(`.count_1 > span`);
+    const hoursValue = form.querySelector(`.count_2 > span`);
+    const minutesValue = form.querySelector(`.count_3 > span`);
+    const secondsValue = form.querySelector(`.count_4 > span`);
 
     const getTimeRemaning = () => {
         let dateStop = new Date(deadLine).getTime();
@@ -25,30 +26,21 @@ const timer = (deadLine => {
     const updated = () => {
         let getTime = getTimeRemaning();
         if (getTime.timeRemaining <= 0) {
-            daysValue[0].textContent = '00';
-            hoursValue[0].textContent = '00';
-            minutesValue[0].textContent = '00';
-            secondsValue[0].textContent = '00';
-
-            daysValue[1].textContent = '00';
-            hoursValue[1].textContent = '00';
-            minutesValue[1].textContent = '00';
-            secondsValue[1].textContent = '00';
+            daysValue.textContent = '00';
+            hoursValue.textContent = '00';
+            minutesValue.textContent = '00';
+            secondsValue.textContent = '00';
+        } else {
+            daysValue.textContent = returnZero(getTime.days);
+            hoursValue.textContent = returnZero(getTime.hours);
+            minutesValue.textContent = returnZero(getTime.minutes);
+            secondsValue.textContent = returnZero(getTime.seconds);
         }
     };
 
     setInterval(() => {
         let getTime = getTimeRemaning();
         if (getTime.timeRemaining > 0) {
-            daysValue[0].textContent = returnZero(getTime.days);
-            hoursValue[0].textContent = returnZero(getTime.hours);
-            minutesValue[0].textContent = returnZero(getTime.minutes);
-            secondsValue[0].textContent = returnZero(getTime.seconds);
-
-            daysValue[1].textContent = daysValue[0].textContent;
-            hoursValue[1].textContent = hoursValue[0].textContent;
-            minutesValue[1].textContent = minutesValue[0].textContent;
-            secondsValue[1].textContent = secondsValue[0].textContent;
             updated();
         }
     }, 1000);

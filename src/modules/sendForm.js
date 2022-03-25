@@ -45,6 +45,22 @@ const sendForm = (ifCalc) => {
         return result;
     };
 
+    const successMassage = () => {
+        const messOne = document.querySelectorAll('.order-form-heading');
+        const messTwo = document.querySelectorAll("#callback > div.box-modal_title > div")[1];
+        const messThree = document.querySelectorAll("#application > div.box-modal_title > div")[1];
+        let messageSuccsess = 'Спасибо! Менеджер свяжется с вами.';
+
+        messOne.forEach((item) => {
+            item.textContent = messageSuccsess;
+            setTimeout(() => { item.textContent = 'ОСТАВИТЬ ЗАЯВКУ'; }, 5000);
+        });
+        messTwo.textContent = messageSuccsess;
+        setTimeout(() => { messTwo.textContent = 'ЗАКАЗ ЗВОНКА'; }, 5000);
+        messThree.textContent = messageSuccsess;
+        setTimeout(() => { messThree.textContent = 'ВЫЗОВ ЗАМЕРЩИКА'; }, 5000);
+    };
+
     const send = (form, name, phone) => {
         form.addEventListener('click', (e) => {
             e.preventDefault();
@@ -55,12 +71,12 @@ const sendForm = (ifCalc) => {
                     phone: phone.value,
                 };
                 if (validate(data) == true) {
-                    if (ifCalc == true) {
+                    if (ifCalc == true && price.value != 0) {
                         data.price = price.value;
                     }
                     sendData(data);
+                    successMassage();
                     clear();
-                    alert('Спасибо! Менеджер свяжется с вами.');
                 } else {
                     alert('Не валидные данные!!!');
                 }

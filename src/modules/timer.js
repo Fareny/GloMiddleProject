@@ -34,7 +34,12 @@ const timer = (deadLine => {
             hoursValue[1].textContent = '00';
             minutesValue[1].textContent = '00';
             secondsValue[1].textContent = '00';
-        } else {
+        }
+    };
+
+    setInterval(() => {
+        let getTime = getTimeRemaning();
+        if (getTime.timeRemaining > 0) {
             daysValue[0].textContent = returnZero(getTime.days);
             hoursValue[0].textContent = returnZero(getTime.hours);
             minutesValue[0].textContent = returnZero(getTime.minutes);
@@ -44,11 +49,6 @@ const timer = (deadLine => {
             hoursValue[1].textContent = hoursValue[0].textContent;
             minutesValue[1].textContent = minutesValue[0].textContent;
             secondsValue[1].textContent = secondsValue[0].textContent;
-        }
-    };
-    setInterval(() => {
-        let getTime = getTimeRemaning();
-        if (getTime.timeRemaining > 0) {
             updated();
         }
     }, 1000);

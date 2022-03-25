@@ -45,17 +45,6 @@ const sendForm = (ifCalc) => {
         return result;
     };
 
-    const clear = () => {
-        nameModalOne.value = '';
-        phoneModalOne.value = '';
-        nameModalTwo.value = '';
-        phoneModalTwo.value = '';
-        nameFormOne.value = '';
-        phoneFormOne.value = '';
-        nameFormTwo.value = '';
-        phoneFormTwo.value = '';
-    };
-
     const send = (form, name, phone) => {
         form.addEventListener('click', (e) => {
             e.preventDefault();
@@ -80,5 +69,16 @@ const sendForm = (ifCalc) => {
     };
     send(formOne, nameFormOne, phoneFormOne); send(modalOne, nameModalOne, phoneModalOne);
     send(formTwo, nameFormTwo, phoneFormTwo); send(modalTwo, nameModalTwo, phoneModalTwo);
+
+    const clear = () => {
+        nameModalOne.value = '';
+        phoneModalOne.value = '';
+        nameModalTwo.value = '';
+        phoneModalTwo.value = '';
+        nameFormOne.value = '';
+        phoneFormOne.value = '';
+        nameFormTwo.value = '';
+        phoneFormTwo.value = '';
+    };
 };
 export default sendForm;
